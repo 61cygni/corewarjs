@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Core Wars JS</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <h1>Core Wars JS</h1>
+
+    <!-- Tab Navigation -->
+    <div class="tab-navigation">
+        <button class="tab-button active" data-tab="game">Game View</button>
+        <button class="tab-button" data-tab="info">Warriors Info</button>
+        <button class="tab-button" data-tab="log">Instructions Log</button>
+    </div>
+
+    <!-- Game Tab -->
+    <div class="tab-content active" id="game-tab">
+        <canvas id="coreWarsCanvas"></canvas>
+        <div id="controls">
+            <button id="startButton">Start</button>
+            <button id="pauseButton">Pause</button>
+            <button id="resetButton">Reset</button>
+            <label for="speedSlider">Speed:</label>
+            <input type="range" id="speedSlider" min="1" max="100" value="10"> 
+            <span id="speedValue">10</span> Cycles/Tick
+        </div>
+    </div>
+
+    <!-- Info Tab -->
+    <div class="tab-content" id="info-tab">
+        <div id="warriorInfoContainer">
+            <h2>Loaded Warriors</h2>
+            <div id="warriorList"></div>
+        </div>
+    </div>
+
+    <!-- Log Tab -->
+    <div class="tab-content" id="log-tab">
+        <div id="instructionLogContainer">
+            <h2>Instruction Execution Log</h2>
+            <div id="instructionLog"></div>
+            <button id="clearLogButton">Clear Log</button>
+        </div>
+    </div>
+
+    <div id="tooltip" class="tooltip"></div>
+
+    <script src="./renderer.js"></script>
+    <script type="module" src="./game.js"></script>
+</body>
+</html> 
