@@ -1,4 +1,7 @@
-class CoreWarsRenderer {
+import { warriorColors } from "./warriors";
+
+
+export class CoreWarsRenderer {
     constructor() {
         this.canvas = document.getElementById('coreWarsCanvas');
         this.ctx = this.canvas.getContext('2d');
@@ -27,16 +30,19 @@ class CoreWarsRenderer {
         this.dimGreen = '#004400';       // Darker green for grid
         
         // Warrior colors (using CSS hex format)
-        this.colors = {
-            1: '#ff0000', // Red - Imp
-            2: '#0000ff', // Blue - Dwarf
-            3: '#00ff00', // Green - Splasher
-            4: '#ff00ff', // Magenta - Pointer Killer
-            5: '#00ffff', // Cyan - Hydra
-            6: '#ffa500', // Orange - Reaper
-            7: '#ffff00', // Yellow - Imp2
-            8: '#ff1493'  // Deep Pink - Painter
-        };
+        this.colors = warriorColors;
+        console.log("warriorColors");
+        console.log(this.colors);
+        // // this.colors = {
+        // //     1: '#ff0000', // Red - Imp
+        // //     2: '#0000ff', // Blue - Dwarf
+        //     3: '#00ff00', // Green - Splasher
+        //     4: '#ff00ff', // Magenta - Pointer Killer
+        //     5: '#00ffff', // Cyan - Hydra
+        //     6: '#ffa500', // Orange - Reaper
+        //     7: '#ffff00', // Yellow - Imp2
+        //     8: '#ff1493'  // Deep Pink - Painter
+        // };
 
         // Bind event handlers
         this.canvas.addEventListener('click', this.handleClick.bind(this));
@@ -88,7 +94,7 @@ class CoreWarsRenderer {
 
         // Fill cell based on ownership with a glow effect
         if (instruction && instruction.ownerId !== null) {
-            const color = this.colors[instruction.ownerId] || this.terminalGreen;
+            const color = this.colors.get(instruction.ownerId) || this.terminalGreen;
             
             // Create a subtle glow effect
             const gradient = this.ctx.createRadialGradient(

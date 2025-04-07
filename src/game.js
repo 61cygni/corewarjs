@@ -1,5 +1,6 @@
 import { warriors } from './warriors.js';
 import { Instruction, Opcode, AddressingMode } from './machine.js';
+import { CoreWarsRenderer } from './renderer.js';
 
 // Core Wars specific constants
 const MEMORY_SIZE = 8192; // Standard MARS size
